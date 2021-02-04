@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JGRBuildingServices.Views.JobSheets.JobSheet"
+             xmlns:local="clr-namespace:JGRBuildingServices"
+             xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:null="clr-namespace:JGRBuildingServices.Extras"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             BackgroundColor="White"
+             Title="Job Sheet">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout>
+                    <Entry x:Name="Id" IsVisible="False" />
+                    <StackLayout x:Name="FirstSection" Padding="20, 10, 20, 0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="125" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="50" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+
+                            <Label Text="Customer:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" />
+                            <Picker x:Name="CustomerList" ItemsSource="{Binding CustomersList}" ItemDisplayBinding="{Binding Name}" HorizontalOptions="FillAndExpand" Title="Please select..." Grid.Column="1" Grid.Row="0" SelectedIndexChanged="CustomerChanged" />
+
+                            <Label x:Name="SiteAddress" Text="Site Address:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="1" />
+                            <Entry x:Name="SiteAddressEntry" Grid.Column="1" Grid.Row="1" Margin="0, 0, 0, 10" Keyboard="Chat" />
+
+                            <Label x:Name="CustomerJobNo" Text="Co-op Job No:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="2"/>
+                            <Entry x:Name="CustomerJobNoEntry" Grid.Column="1" Grid.Row="2" Margin="0, 0, 0, 10" Keyboard="Chat" />
+
+                            <Label x:Name="JgrJobNo" Text="JGR Job No:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="3"/>
+                            <Entry x:Name="JgrJobNoEntry" Grid.Column="1" Grid.Row="3" Margin="0, 0, 0, 10" Keyboard="Chat" />
+
+                            <Label x:Name="AssessmentBy" Text="Assessment Completed By:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="4"/>
+                            <Entry x:Name="AssessmentByEntry" Grid.Column="1" Grid.Row="4" Margin="0, 0, 0, 10" Keyboard="Chat" />
+
+                            <Label Text="Signature" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="5" VerticalTextAlignment="Center" />
+                            <sig:SignaturePadView x:Name="SignatureSignaturePadView" StrokeWidth="3" HorizontalOptions="FillAndExpand" HeightRequest="200" StrokeColor="Black" BackgroundColor="#E8E8E8" CaptionText="Please Sign Here." Grid.Column="1" Grid.Row="5" />
+                            <Image x:Name="SignImage" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Grid.Column="1" Grid.Row="5" />
+
+                            <Label x:Name="Position" Text="Position:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="6"/>
+                            <Entry x:Name="PositionEntry" Grid.Column="1" Grid.Row="6" Margin="0, 0, 0, 10" Keyboard="Chat" />
+
+                            <Label x:Name="DateAndTime" Text="Date" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="7"/>
+                            <null:NullableDatePicker x:Name="DateAndTimePicker" Grid.Column="1" Grid.Row="7" Margin="0, 0, 0, 10" Format="dd/MM/yyyy" />
+                        </Grid>
+                    </StackLayout>
+                    
+                    <StackLayout x:Name="SecondSection">
+                        <local:DescriptionAccordionView x:Name="Description" HeaderText="Description of works to be completed" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="ThirdSection">
+                        <local:LocationOfWorkAccordionView x:Name="Location" HeaderText="Location of works and equipment to be worked on" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="FourthSection">
+                        <local:PersonsAtRiskAccordionView x:Name="PersonsRisk" HeaderText="Persons at Risk (Tick appropriate boxes)" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="FifthSection">
+                        <local:BeforeYouStartAccordionView x:Name="BeforeYouStart" HeaderText="Before You Start" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="SixthSection">
+                        <local:RiskAssessmentAccordionView x:Name="RiskAssessment" HeaderText="Risk Assessment (Tick all relevant to task being completed)" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="SeventhSection">
+                        <local:AdditionalHazardsAccordionView x:Name="AdditionalHazard" HeaderText="Additional Hazards not covered by Service Engineers Risk..." HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="EighthSection">
+                        <local:SiteWorksAccordionView x:Name="SiteWorks" HeaderText="Site Works" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="IsFGas" Padding="20,10,20,10">
+                        <input:CheckBox x:Name="FGasSwitch" CheckChanged="IsFGas_CheckChanged" Text="FGas Required?" TextColor="Black"  />
+                    </StackLayout>
+
+                    <StackLayout x:Name="NinthSection">
+                        <local:FGasAccordionView x:Name="FGas" HeaderText="F-Gas - To be completed when refrigerant is used on leak repairs" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout x:Name="TenthSection">
+                        <local:PartsTimeMiscAccordion x:Name="PartsTimeMisc" HeaderText="Parts / Time / Misc" HeaderBackgroundColor="#3498db" HeaderOpenedBackgroundColor="#3498db" HeaderTextColor="White" />
+                    </StackLayout>
+
+                    <StackLayout Padding="20, 20, 20, 20">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="150" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Sub Invoice Total" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" />
+                            <Entry x:Name="SubInvoiceTotal" Grid.Column="1" Grid.Row="0" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                            <Label Text="Value Added Tax" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" />
+                            <Entry x:Name="ValueAddedTax" Grid.Column="1" Grid.Row="1" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                            <Label Text="Total Invoice" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" />
+                            <Entry x:Name="TotalInvoice" Grid.Column="1" Grid.Row="2" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                            <Label Text="Customer Signature" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="3" VerticalTextAlignment="Center" />
+                            <sig:SignaturePadView x:Name="CustomerSignatureSignaturePadView" StrokeWidth="3" HorizontalOptions="FillAndExpand" HeightRequest="200" StrokeColor="Black" BackgroundColor="#E8E8E8" CaptionText="Please Sign Here." Grid.Column="1" Grid.Row="3" />
+                            <Image x:Name="CustomerSignImage" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Grid.Column="1" Grid.Row="3" />
+
+                            <Label Text="Customer Print Name" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="4" VerticalTextAlignment="Center" />
+                            <Entry x:Name="CustomerPrintName" Grid.Column="1" Grid.Row="4" Margin="0, 0, 0, 10" />
+
+                            <Label Text="Date" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="5" VerticalTextAlignment="Center" />
+                            <null:NullableDatePicker x:Name="FormCompletionDate" Grid.Column="1" Grid.Row="5" Margin="0, 0, 0, 10" />
+                        </Grid>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout x:Name="ActivityIndicator_StackLayout" Orientation="Horizontal" Margin="0, 50, 0, 0" IsVisible="False">
+                <ActivityIndicator x:Name="SubmitJobSheet" IsVisible="True" HorizontalOptions="CenterAndExpand" IsRunning="True" />
+            </StackLayout>
+            <StackLayout BackgroundColor="#3498db">
+                <StackLayout BackgroundColor="#3498db" x:Name="CallToActions_StackLayout" Orientation="Horizontal" Padding="20, 20, 20, 20">
+                    <Button x:Name="Delete" Clicked="Delete_Clicked" Text="Delete" HorizontalOptions="StartAndExpand" IsVisible="False" BackgroundColor="White" TextColor="Black" />
+                    <Button x:Name="SendToOffice" Clicked="SendToOffice_Clicked" Text="Send to Office" HorizontalOptions="CenterAndExpand" IsVisible="False" BackgroundColor="White" TextColor="Black" />
+                    <Button x:Name="Save" Clicked="Save_Clicked" Text="Save" BackgroundColor="White" TextColor="Black" HorizontalOptions="EndAndExpand" WidthRequest="150" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ListItems="clr-namespace:JGRBuildingServices.Views.PurchaseOrders"
+             x:Class="JGRBuildingServices.Views.PurchaseOrders.PurchaseOrder"
+             BackgroundColor="White"
+             Title="Purchase Order">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Assets/styles.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Entry x:Name="Id" IsVisible="False" />
+                <Entry x:Name="Number" IsVisible="False" />
+
+                <Grid Margin="0, 0, 0, 20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label x:Name="PurchaseOrderNumber_Label" FontSize="32" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" IsVisible="False" />
+                    
+                    <Label Text="Date" FontSize="18" FontAttributes="Bold" TextColor="Black" Grid.Column="0" Grid.Row="1" />
+                    <DatePicker x:Name="CreatedDate_DatePicker" FontSize="18" Grid.Column="1" Grid.Row="1" />
+                </Grid>
+                
+                <Grid ColumnSpacing="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Column="0" Grid.Row="0">
+                        <Label Text="Supplier" FontAttributes="Bold" FontSize="18" TextColor="Black" />
+                        <Editor x:Name="Supplier_Editor" FontSize="18" HeightRequest="120" />
+                    </StackLayout>
+                    
+                    <StackLayout Grid.Column="1" Grid.Row="0">
+                        <Label Text="Ship To" FontAttributes="Bold" FontSize="18" TextColor="Black" />
+                        <Editor x:Name="ShipTo_Editor" FontSize="18" HeightRequest="120" /> 
+                    </StackLayout>
+                </Grid>
+            
+                <Grid Margin="0, 20, 0, 20" ColumnSpacing="20" RowSpacing="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Shipping Method" FontAttributes="Bold" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="0" />
+                    <Entry x:Name="ShippingMethod_Entry" Grid.Column="0" Grid.Row="1" />
+                    <Label Text="Shipping Terms" FontAttributes="Bold" TextColor="Black" FontSize="18" Grid.Column="1" Grid.Row="0" />
+                    <Entry x:Name="ShippingTerms_Entry" Grid.Column="1" Grid.Row="1" />
+                    <Label Text="Delivery Date" FontAttributes="Bold" TextColor="Black" FontSize="18" Grid.Column="2" Grid.Row="0" />
+                    <DatePicker x:Name="DeliveryDate_DatePicker" Grid.Column="2" Grid.Row="1" />
+                </Grid>
+                
+                <Grid Margin="0, 70, 0, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="70" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label x:Name="QuantityLabel" Text="Qty" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" />
+                    <Label x:Name="ItemLabel" Text="Item" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Start" />
+                    <Label x:Name="JobLabel" Text="Job" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="3" Grid.Row="0" HorizontalTextAlignment="Start" />
+                    <Label x:Name="UnitPriceLabel" Text="Unit Price" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="4" Grid.Row="0" HorizontalTextAlignment="Center" />
+                    <Label x:Name="LineTotalLabel" Text="Line Total" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="5" Grid.Row="0" HorizontalTextAlignment="Center" />
+                </Grid>
+                <StackLayout x:Name="ListItems">
+                    <ListItems:ListItems />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                    <Button x:Name="AddMoreButton" Text="Add More" StyleClass="addButton" Clicked="AddMoreButton_Clicked" />
+                </StackLayout>
+                
+                <Grid Margin="0, 100, 0, 30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="550" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Subtotal:" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Entry x:Name="SubTotal_Entry" IsEnabled="False" Grid.Column="1" Grid.Row="0" />
+                    <Label Text="VAT:" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Entry x:Name="VAT_Entry" IsEnabled="False" Grid.Column="1" Grid.Row="1" />
+                    <Label Text="Total:" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.Row="2" HorizontalTextAlignment="End" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Entry x:Name="Total_Entry" IsEnabled="False" Grid.Column="1" Grid.Row="2" />
+                </Grid>
+
+                <StackLayout>
+                    <Label Text="1. Enter this order in accordance with prices, terms, delivery method and specifications listed above." TextColor="Black" FontSize="14" />
+                    <Label Text="2. Please notify us immediatewly if your are unable to ship as specified." TextColor="Black" FontSize="14" />
+                    <Label Text="3. Send all correspondence to the address listed above on this purchase order." TextColor="Black" FontSize="14" />
+                </StackLayout>
+                
+                <StackLayout x:Name="ActivityIndicator_StackLayout" Orientation="Horizontal" Margin="0, 30, 0, 0" IsVisible="False">
+                    <ActivityIndicator x:Name="SubmitPurchaseOrder" IsVisible="True" HorizontalOptions="CenterAndExpand" IsRunning="True" />
+                </StackLayout>
+                <StackLayout x:Name="CallToActions_StackLayout" Orientation="Horizontal" Margin="0, 30, 0, 0">
+                    <Button x:Name="Delete" Clicked="Delete_Clicked" StyleClass="deleteButton" Text="Delete" HorizontalOptions="StartAndExpand" IsVisible="False" />
+                    <Button x:Name="SendToOffice" Clicked="SendToOffice_Clicked" StyleClass="secondaryButton" Text="Send to Office" HorizontalOptions="CenterAndExpand" IsVisible="False" />
+                    <Button x:Name="Save" StyleClass="primaryButton" Clicked="Save_Clicked" Text="Save" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

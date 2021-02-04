@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="JGRBuildingServices.BeforeYouStartAccordionView"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="20" TextColor="Black" VerticalOptions="Center" Margin="20, 0, 0, 0" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,16,5" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid x:Name="BodyView" Padding="20, 20, 20, 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Column="0" Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check1" Text="Have you worked on this site before?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" />
+                        <input:RadioButtonGroupView x:Name="Check1Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check1YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check1NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check1NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check1Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check2" Text="Have all checks and procedures been completed, as detailed in the Service Engineers Method Statement?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check2Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check2YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check2NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check2NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check2Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="2">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check3" Text="Have you done this type of job before?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check3Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check3YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check3NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check3NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check3Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check4" Text="Do you have the right tools for the job?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check4Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check4YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check4NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check4NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check4Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check5" Text="Where required, tools need calibrated and in date?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check5Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check5YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check5NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check5NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check5Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check6" Text="Do you have the right documentation for the job?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check6Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check6YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check6NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check6NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check6Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="6">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check7" Text="Do you have the right PPE for the job?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check7Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check7YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check7NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check7NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check7Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="7">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check8" Text="Are power tools and leads PAT tested?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check8Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check8YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check8NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check8NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check8Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Grid.Column="0" Grid.Row="8">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="230" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label x:Name="Check9" Text="Are scaffolds and ladders inspected?" TextColor="Black" FontSize="20" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0"  />
+                        <input:RadioButtonGroupView x:Name="Check9Value" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Orientation="Horizontal">
+                            <input:RadioButton Text="Yes" x:Name="Check9YesCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="No" x:Name="Check9NoCheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="80" />
+                            <input:RadioButton Text="Not Applicable" x:Name="Check9NACheckbox" Color="Black" TextColor="Black" TextFontSize="18" WidthRequest="170" />
+                        </input:RadioButtonGroupView>
+                        <Label Text="Comments:" FontSize="18" VerticalTextAlignment="Center" TextColor="Black" Grid.Column="3" Grid.Row="1" />
+                        <Entry x:Name="Check9Comments" Margin="0, 0, 0, 0" Grid.Column="4" Grid.Row="1" TextColor="Black" />
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

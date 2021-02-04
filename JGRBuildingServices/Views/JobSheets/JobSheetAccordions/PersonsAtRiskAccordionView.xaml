@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="JGRBuildingServices.PersonsAtRiskAccordionView">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="20" TextColor="Black" VerticalOptions="Center" Margin="20, 0, 0, 0" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,16,5" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid x:Name="BodyView" Padding="40, 20, 40, 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"  />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <input:CheckBox x:Name="JGREmployeesCheckbox" Text="JGR Employees:" TextColor="Black" TextFontSize="18" Type="Check" Grid.Column="0" Grid.Row="0" Color="Blue" HorizontalOptions="Start" FlowDirection="RightToLeft"/>
+                <input:CheckBox x:Name="CustomerSPCheckbox" Text="Customer / Site Personnel:" TextColor="Black" TextFontSize="18" Type="Check" Grid.Column="1" Grid.Row="0" Color="Red" HorizontalOptions="End" FlowDirection="RightToLeft"/>
+
+                <input:CheckBox x:Name="YoungPersonsCheckbox" Text="Young Persons:" TextColor="Black" TextFontSize="18" Type="Check" Grid.Column="0" Grid.Row="1" Color="Blue" HorizontalOptions="Start" FlowDirection="RightToLeft"/>
+                <input:CheckBox x:Name="MembersOfPublicCheckbox" Text="Members of the Public / Customers:" TextColor="Black" TextFontSize="18" Type="Check" Grid.Column="1" Grid.Row="1" Color="Red" HorizontalOptions="End" FlowDirection="RightToLeft"/>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>  

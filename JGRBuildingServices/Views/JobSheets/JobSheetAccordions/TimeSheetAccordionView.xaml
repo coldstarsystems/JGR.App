@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JGRBuildingServices.Extras"
+             x:Class="JGRBuildingServices.TimeSheetAccordionView">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="20" TextColor="Black" VerticalOptions="Center" Margin="20, 0, 0, 0" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="Black" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,16,5" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid x:Name="BodyView">
+                <Grid Padding="20, 20, 20, 20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Engineer" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="0" />
+                    <Entry x:Name="Engineer" Grid.Column="1" Grid.Row="0" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Mate" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="1" />
+                    <Entry x:Name="Mate" Grid.Column="1" Grid.Row="1" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Date" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="2" />
+                    <local:NullableDatePicker x:Name="Date" Grid.Column="1" Grid.Row="2" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Start Time" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="3" />
+                    <local:NullableTimePicker PropertyChanged="StartTime_PropertyChanged" x:Name="StartTime" NullableTime="{x:Null}" Grid.Column="1" Grid.Row="3" Margin="0, 0, 0, 10"/>
+
+                    <Label Text="Time Arrive" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="4" />
+                    <local:NullableTimePicker PropertyChanged="TimeArrive_PropertyChanged" x:Name="TimeArrive" NullableTime="{x:Null}" Grid.Column="1" Grid.Row="4" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Time Depart" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="5" />
+                    <local:NullableTimePicker PropertyChanged="TimeDepart_PropertyChanged" x:Name="TimeDepart" NullableTime="{x:Null}" Grid.Column="1" Grid.Row="5" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Hours On Site" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="6" />
+                    <Entry x:Name="HoursOnSite" PropertyChanged="HoursOnSite_TextChanged" TextColor="Gray" Grid.Column="1" Grid.Row="6" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Hours Travel" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="7" />
+                    <Entry x:Name="HoursTravel" Text="0" PropertyChanging="HoursTravel_TextChanged" Grid.Column="1" Grid.Row="7" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Total Hours" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="8" />
+                    <Entry x:Name="TotalHoursEntry" TextColor="Gray" Grid.Column="1" Grid.Row="8" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Normal Time" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="9" />
+                    <Entry x:Name="NormalTime" Grid.Column="1" Grid.Row="9" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                    <Label Text="At Rate Of" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="10" />
+                    <Entry x:Name="NormalTimeAtRateOf" Grid.Column="1" Grid.Row="10" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Overtime" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="11" />
+                    <Entry x:Name="Overtime" Grid.Column="1" Grid.Row="11" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                    <Label Text="At Rate Of" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="12" />
+                    <Entry x:Name="OvertimeAtRateOf" Grid.Column="1" Grid.Row="12" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Labour Charges" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="13" />
+                    <Entry x:Name="LabourCharges" Grid.Column="1" Grid.Row="13" Keyboard="Numeric" Margin="0, 0, 0, 10" />
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

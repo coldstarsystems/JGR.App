@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JGRBuildingServices.Views.VehicleChecklists.VehicleChecklists"
+             BackgroundColor="White"
+             Title="Vehicle Checklists">             
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Create" Clicked="Create_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <StyleSheet Source="/Assets/styles.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="0" BackgroundColor="White">
+            <ListView x:Name="VehicleChecklists_ListView" ItemSelected="VehicleChecklistsList_ItemSelected">
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, 0, 0, 20">
+                        <Label Text="" WidthRequest="60" />
+                        <Label Text="Date" WidthRequest="150" HorizontalOptions="FillAndExpand" TextColor="Black" FontSize="24" FontAttributes="Bold" />
+                        <Label Text="Registration" HorizontalOptions="FillAndExpand" WidthRequest="220" TextColor="Black" FontSize="24" FontAttributes="Bold" />
+                        <Label Text="Mileage" HorizontalOptions="FillAndExpand" WidthRequest="150" TextColor="Black" FontSize="24" FontAttributes="Bold" />
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, 10, 0, 10" HeightRequest="40">
+                                <Image Source="vehiclechecks.png" WidthRequest="60" />
+                                <Label Text="{Binding CreatedDate, StringFormat='{0:dd/MM/yyyy}'}" HorizontalOptions="FillAndExpand" WidthRequest="150" TextColor="Black" FontSize="18" />
+                                <Label Text="{Binding Registration}" HorizontalOptions="FillAndExpand" WidthRequest="220" TextColor="Black" FontSize="18" />
+                                <Label Text="{Binding Mileage}" HorizontalOptions="FillAndExpand" WidthRequest="150" TextColor="Black" FontSize="18" />
+                                <Label Text="{Binding Id}" IsVisible="False" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout x:Name="NoResults_StackLayout" BackgroundColor="Red">
+                <Label Text="There are no Vehicle Checklists to be sent to the office." FontSize="20" TextColor="White" HorizontalTextAlignment="Center" Margin="20" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

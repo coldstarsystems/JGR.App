@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             xmlns:Custom="clr-namespace:JGRBuildingServices.Extras"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="JGRBuildingServices.Views.HotWorkPermit.AccordionViews.ReturnOfPermit">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" Margin="10" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,10,16,10" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid x:Name="BodyView" BackgroundColor="White">
+                <StackLayout Padding="20,10,20,0">
+                    <input:CheckBox x:Name="ReturnCompletedCheckbox" Type="Check" TextColor="Black" TextFontSize="18" Text="I can confirm that all hot work activity has been completed and that the area has been inspected by me, to ensure no smouldering or burning materials are present and Part 3 of the Hot Work Permit - Checklist has been completed." />
+
+                    <Entry x:Name="ReturnMinutesEntry" FontSize="18" WidthRequest="50" TextColor="Black" Keyboard="Numeric" HorizontalTextAlignment="Center" Placeholder="Enter Minutes after Hot Work was Completed" />
+
+                    <input:CheckBox x:Name="ReturnCancelledCheckbox" Type="Check" TextColor="Black" TextFontSize="18" Text="I confirm the cancellation of this Hot Work Permit and I am satisfied the inspection of the work area has been completed and no hot work has been carried out." />
+                    <Grid Margin="0,10,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="200" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label Text="Signed" TextColor="Black" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" />
+                        <controls:SignaturePadView x:Name="ReturnSignature" StrokeColor="Black" StrokeWidth="3" BackgroundColor="White" Grid.Column="1" Grid.Row="0" VerticalOptions="CenterAndExpand" HeightRequest="200" />
+                        <Image x:Name="ReturnSignatureImage" HorizontalOptions="StartAndExpand" Grid.Column="1" Grid.Row="0" VerticalOptions="CenterAndExpand" HeightRequest="200" IsVisible="False" />
+                        <Label Grid.Column="0" Grid.Row="1" Text="Date" TextColor="Black" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <DatePicker Format="dd/MM/yyyy" x:Name="ReturnDatePicker" Grid.Column="1" Grid.Row="1" TextColor="Black" VerticalOptions="Center"/>
+                        <Label Grid.Column="0" Grid.Row="2" Text="Name" TextColor="Black" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Entry x:Name="ReturnName" Grid.Column="1" Grid.Row="2" TextColor="Black" VerticalOptions="Center"/>
+                        <Label Grid.Column="0" Grid.Row="3" Text="Company" TextColor="Black" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Entry x:Name="ReturnCompany" Grid.Column="1" Grid.Row="3" TextColor="Black" VerticalOptions="Center"/>
+                        <Label Grid.Column="0" Grid.Row="4" Text="Job Title" TextColor="Black" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Entry x:Name="ReturnJobTitle" Grid.Column="1" Grid.Row="4" TextColor="Black" VerticalOptions="Center"/>
+                        <Label Grid.Column="0" Grid.Row="5" Text="Time" TextColor="Black" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center"/>
+                        <Custom:NullableTimePicker x:Name="ReturnTime" Grid.Column="1" Grid.Row="5" TextColor="Black" VerticalOptions="Center"/>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

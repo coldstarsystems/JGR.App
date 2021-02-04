@@ -1,0 +1,54 @@
+﻿^ContentPage {
+    padding: 20;
+}
+
+/* Buttons */
+
+.primaryButton {
+    background-color: #0065b2;
+    color: #ffffff;
+    width: 240;
+    height: 60;
+    font-style: bold;
+}
+
+.secondaryButton {
+    background-color: green;
+    color: #ffffff;
+    width: 220;
+    height: 60;
+    font-style: bold;
+}
+
+.deleteButton {
+    background-color: red;
+    color: #ffffff;
+    width: 220;
+    height: 60;
+    font-style: bold;
+}
+
+.addButton {
+    background-color: #0065b2;
+    color: #ffffff;
+    width: 220;
+    height: 60;
+    font-style: bold;
+}
+
+.signatureButton 
+{
+    background-color: #0065b2;
+    color: #ffffff;
+    width: 220;
+    height: 60;
+    font-style: bold;
+}
+
+/* No Items */
+
+.noItems {
+    background-color: red;
+    color: #fff;
+    font-style: bold;
+}

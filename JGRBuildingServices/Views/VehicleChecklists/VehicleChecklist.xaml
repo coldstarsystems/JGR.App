@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sig="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             x:Class="JGRBuildingServices.Views.VehicleChecklists.VehicleChecklist"
+             BackgroundColor="White"             
+             Title="Vehicle Checklist">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Assets/styles.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Entry x:Name="Id" IsVisible="False" />
+                <Grid x:Name="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label x:Name="CreatedDate_Label" Text="Date *" FontSize="18" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" />
+                    <DatePicker x:Name="CreatedDate_DatePicker" FontSize="18" Grid.Column="1" Grid.Row="0" />
+
+                    <Label x:Name="Registration_Label" Text="Registration *" FontSize="18" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" />
+                    <Entry x:Name="Registration_Entry" FontSize="18" Grid.Column="1" Grid.Row="1" Keyboard="Chat" />
+
+                    <Label x:Name="Mileage_Label" Text="Mileage *" FontSize="18" Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" />
+                    <Entry x:Name="Mileage_Entry" FontSize="18" Grid.Column="1" Grid.Row="2" />
+                </Grid>
+                <Grid x:Name="Middle" Margin="0, 50, 0, 50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <Label Text="Vehicle Check" Grid.Column="0" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="18" />
+                    <Label Text="Value" Grid.Column="1" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="18" />
+                    <Label Text="Comments" Grid.Column="2" Grid.Row="0" TextColor="Black" FontAttributes="Bold" FontSize="18" />
+                    
+                    <Label x:Name="OCFL_Label" Text="Oil, Coolant and all Fluid Levels" FontSize="18" Grid.Column="0" Grid.Row="1" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="OCFL_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="OCFL_Comments" FontSize="18" Grid.Column="2" Grid.Row="1" Keyboard="Chat" />
+
+                    <Label x:Name="VLWC_Label" Text="All Vehicle Lights Working and Clean" FontSize="18" Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="VLWC_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="2">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="VLWC_Comments" FontSize="18" Grid.Column="2" Grid.Row="2" Keyboard="Chat" />
+
+                    <Label x:Name="WW_Label" Text="Washers Working" FontSize="18" Grid.Column="0" Grid.Row="3" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="WW_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="3">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="WW_Comments" FontSize="18" Grid.Column="2" Grid.Row="3" Keyboard="Chat" />
+
+                    <Label x:Name="CWM_Label" Text="Clean Windscreen and Mirrors" FontSize="18" Grid.Column="0" Grid.Row="4" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="CWM_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="4">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="CWM_Comments" FontSize="18" Grid.Column="2" Grid.Row="4" Keyboard="Chat" />
+
+                    <Label x:Name="H_Label" Text="Horn" FontSize="18" Grid.Column="0" Grid.Row="5" VerticalTextAlignment="Center"  TextColor="Black" />
+                    <Picker x:Name="H_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="5">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="H_Comments" FontSize="18" Grid.Column="2" Grid.Row="5" Keyboard="Chat" />
+
+                    <Label x:Name="HB_Label" Text="Handbrake" FontSize="18" Grid.Column="0" Grid.Row="6" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="HB_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="6">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="HB_Comments" FontSize="18" Grid.Column="2" Grid.Row="6" Keyboard="Chat" />
+
+                    <Label x:Name="TP_Label" Text="Tyre Pressures (To Manufacturers Guidelines)" FontSize="18" Grid.Column="0" Grid.Row="7" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="TP_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="7">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="TP_Comments" FontSize="18" Grid.Column="2" Grid.Row="7" Keyboard="Chat" />
+
+                    <Label x:Name="TC_Label" Text="Tyre Condition / Tread Depth" FontSize="18" Grid.Column="0" Grid.Row="8" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="TC_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="8">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="TC_Comments" FontSize="18" Grid.Column="2" Grid.Row="8" Keyboard="Chat" />
+
+                    <Label x:Name="CVN_Label" Text="Clean Visible Number Plate" FontSize="18" Grid.Column="0" Grid.Row="9" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="CVN_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="9">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="CVN_Comments" FontSize="18" Grid.Column="2" Grid.Row="9" Keyboard="Chat" />
+
+                    <Label x:Name="SW_Label" Text="All Seatbelts Working and in Good Order" FontSize="18" Grid.Column="0" Grid.Row="10" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="SW_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="10">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="SW_Comments" FontSize="18" Grid.Column="2" Grid.Row="10" Keyboard="Chat" />
+
+                    <Label x:Name="CCV_Label" Text="Cleanliness of Vehicle" FontSize="18" Grid.Column="0" Grid.Row="11" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="CCV_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="11">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="CCV_Comments" FontSize="18" Grid.Column="2" Grid.Row="11" Keyboard="Chat" />
+
+                    <Label x:Name="ISS_Label" Text="Items Stored Securely" FontSize="18" Grid.Column="0" Grid.Row="12" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="ISS_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="12">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="ISS_Comments" FontSize="18" Grid.Column="2" Grid.Row="12" Keyboard="Chat" />
+
+                    <Label x:Name="FE_Label" Text="Fire Extinguishers (Safety Tag, Inspection Date)" FontSize="18" Grid.Column="0" Grid.Row="13" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="FE_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="13">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="FE_Comments" FontSize="18" Grid.Column="2" Grid.Row="13" Keyboard="Chat" />
+
+                    <Label x:Name="FA_Label" Text="First Aid Kit (Fully Stocked, Contents in Date" FontSize="18" Grid.Column="0" Grid.Row="14" VerticalTextAlignment="Center" TextColor="Black" />
+                    <Picker x:Name="FA_Picker" Title="Select..." HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="14">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Yes</x:String>
+                                <x:String>No</x:String>
+                                <x:String>N/A</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Entry x:Name="FA_Comments" FontSize="18" Grid.Column="2" Grid.Row="14" Keyboard="Chat" />
+                </Grid>
+                
+                <Grid x:Name="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label x:Name="Comments_Label" Text="Comments" FontSize="18" Grid.Column="0" Grid.Row="0" VerticalTextAlignment="Start" FontAttributes="Bold" TextColor="Black" />
+                    <Editor x:Name="Comments_Entry" FontSize="18" Grid.Column="0" Grid.Row="1" Keyboard="Chat" />
+
+                    <Label x:Name="Certify_Label" Text="I certify that I have undertaken an inspection of the equipment detailed above and have visually inspected all electrical equipment owned by myself. I have also inspected the above detailed vehicle to ensure the vehicle's safety and road worthiness has been carried out before being used on company business." FontSize="16" Grid.Column="0" Grid.Row="2" VerticalTextAlignment="Center" TextColor="Black" />
+                </Grid>
+                <StackLayout x:Name="StaffSignLabel" VerticalOptions="Start" HorizontalOptions="FillAndExpand" Spacing="20" BackgroundColor="White" Margin="0, 20, 0, 0">
+                    <Label Text="Signature" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center" TextColor="Black" FontAttributes="Bold" />
+                </StackLayout>
+                <StackLayout x:Name="StaffSign_StackLayout">
+                    <sig:SignaturePadView x:Name="StaffSign" StrokeWidth="3" HorizontalOptions="FillAndExpand" HeightRequest="200" StrokeColor="Black" BackgroundColor="#E8E8E8" CaptionText="Please Sign Here." />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="0, 20, 0, 0" x:Name="StaffSignImage_StackLayout">
+                    <Image x:Name="StaffSignImage" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <StackLayout x:Name="ActivityIndicator_StackLayout" Orientation="Horizontal" Margin="0, 30, 0, 0" IsVisible="False">
+                    <ActivityIndicator x:Name="SubmitVehicleChecklist" IsVisible="True" HorizontalOptions="CenterAndExpand" IsRunning="True" />
+                </StackLayout>
+                <StackLayout x:Name="CallToActions_StackLayout" Orientation="Horizontal" Margin="0, 30, 0, 0">
+                    <Button x:Name="Delete" Clicked="Delete_Clicked" StyleClass="deleteButton" Text="Delete" HorizontalOptions="StartAndExpand" IsVisible="False" />
+                    <Button x:Name="SendToOffice" Clicked="SendToOffice_Clicked" StyleClass="secondaryButton" Text="Send to Office" HorizontalOptions="CenterAndExpand" IsVisible="False" />
+                    <Button x:Name="Save" StyleClass="primaryButton" Clicked="Save_Clicked" Text="Save" HorizontalOptions="EndAndExpand" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

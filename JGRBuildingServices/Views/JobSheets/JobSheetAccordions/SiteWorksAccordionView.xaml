@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="JGRBuildingServices.SiteWorksAccordionView">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="20" TextColor="Black" VerticalOptions="Center" Margin="20, 0, 0, 0" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,16,5" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid x:Name="BodyView" Padding="20, 40, 20, 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"  />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+                <Label Text="Make:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="0" />
+                <Entry x:Name="Make" Grid.Column="1" Grid.Row="0" Margin="0, 0, 0, 10" />
+
+                <Label Text="Model:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="1" />
+                <Entry x:Name="Model" Grid.Column="1" Grid.Row="1" Margin="0, 0, 0, 10" />
+
+                <Label Text="Serial:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="2" />
+                <Entry x:Name="Serial" Grid.Column="1" Grid.Row="2" Margin="0, 0, 0, 10" />
+
+                <Label Text="Asset No:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="3" />
+                <Entry x:Name="AssetNumber" Grid.Column="1" Grid.Row="3" Margin="0, 0, 0, 10" />
+
+                <Label Text="Works Carried Out:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" />
+                <Editor x:Name="WorkCarriedOut" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Keyboard="Chat" Margin="0, 0, 0, 10" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

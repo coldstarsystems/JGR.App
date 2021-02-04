@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:jgrjobsheet="clr-namespace:JGRBuildingServices"
+             xmlns:local="clr-namespace:JGRBuildingServices.Extras"
+             x:Class="JGRBuildingServices.FGasAccordionView">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="20" TextColor="Black" VerticalOptions="Center" Margin="20, 0, 0, 0" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,16,5" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <StackLayout x:Name="BodyView" Padding="0, 0, 0, 0">
+                <StackLayout Padding="0, 0, 0, 20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="#78C4F7" Grid.Column="0" Grid.Row="0" />
+                        <Label Text="Leak Test Carried Out" FontSize="20" TextColor="White" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Margin="20, 10, 0, 10" />
+                    </Grid>
+                </StackLayout>
+                <Grid Padding="20, 0, 20, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Date:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="0" />
+                    <local:NullableDatePicker x:Name="LeakTestDate" Grid.Column="1" Grid.Row="0" Margin="0, 0, 0, 10"/>
+
+                    <Label Text="Start Time:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="1" />
+                    <local:NullableTimePicker x:Name="LeakTestStartTime" NullableTime="{x:Null}" Grid.Column="1" Grid.Row="1" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Finish Time:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="2" />
+                    <local:NullableTimePicker x:Name="LeakTestFinishTime" NullableTime="{x:Null}" Grid.Column="1" Grid.Row="2" Margin="0, 0, 0, 10" />
+
+                    <Label Text="System Number:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="3" />
+                    <Entry x:Name="LeakTestSystemNo" Grid.Column="1" Grid.Row="3" Margin="0, 0, 0, 10" Keyboard="Numeric" />
+
+                    <Label Text="Leak Found:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="4" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="4" Margin="0, 0, 0, 10">
+                        <input:CheckBox x:Name="LeakTestLeakFoundYes" Text="Yes:" Color="Red" FlowDirection="RightToLeft" TextFontSize="18" Type="Check" Margin="0, 0, 80, 0" />
+                        <input:CheckBox x:Name="LeakTestLeakFoundNo" Text="No:" Color="Blue" FlowDirection="RightToLeft" TextFontSize="18" Type="Check" />
+                    </StackLayout>
+
+                    <Label Text="Location of Leak:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="5" />
+                    <Entry x:Name="LeakTestLocationOfLeak" Grid.Column="1" Grid.Row="5" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Details of Repair:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="6" />
+                    <Entry x:Name="LeakTestDetailsOfRepair" Grid.Column="1" Grid.Row="6" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Action Taken to Prevent Leak:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="7" />
+                    <Entry x:Name="LeakTestActionsToPreventLeak" Grid.Column="1" Grid.Row="7" Margin="0, 0, 0, 10" />
+                </Grid>
+                <StackLayout Padding="0, 20, 0, 20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="#78C4F7" Grid.Column="0" Grid.Row="0" />
+                        <Label Text="Return Leak Test Carried Out" FontSize="20" TextColor="White" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Margin="20, 10, 0, 10" />
+                    </Grid>
+                </StackLayout>
+                <Grid Padding="20, 0, 20, 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*"  />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Date:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="0" />
+                    <local:NullableDatePicker x:Name="ReturnLeakDate" Grid.Column="1" Grid.Row="0" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Start Time:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="1" />
+                    <local:NullableTimePicker x:Name="ReturnLeakStartTime" Grid.Column="1" Grid.Row="1" Margin="0, 0, 0, 10" />
+
+                    <Label Text="Finish Time:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="2" />
+                    <local:NullableTimePicker x:Name="ReturnLeakFinishTime" Grid.Column="1" Grid.Row="2" Margin="0, 0, 0, 10" />
+
+                    <Label Text="System Number:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="3" />
+                    <Entry x:Name="ReturnLeakSystemNo" Grid.Column="1" Grid.Row="3" Margin="0, 0, 0, 10" Keyboard="Numeric" />
+
+                    <Label Text="Leak Found:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="4" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="4" Margin="0, 0, 0, 10">
+                        <input:CheckBox x:Name="ReturnLeakLeakFoundYes" Text="Yes:" Color="Red" FlowDirection="RightToLeft" TextFontSize="18" Type="Check" Margin="0, 0, 80, 0" />
+                        <input:CheckBox x:Name="ReturnLeakLeakFoundNo" Text="No:" Color="Blue" FlowDirection="RightToLeft" TextFontSize="18" Type="Check" />
+                    </StackLayout>
+
+                    <Label Text="Details:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="5" />
+                    <Entry x:Name="ReturnLeakDetails" Grid.Column="1" Grid.Row="5" Margin="0, 0, 0, 10" />
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

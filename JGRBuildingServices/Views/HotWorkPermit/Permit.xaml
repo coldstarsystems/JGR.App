@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:accordion="clr-namespace:JGRBuildingServices.Views.HotWorkPermit.AccordionViews"
+             xmlns:Custom="clr-namespace:JGRBuildingServices.Extras"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="JGRBuildingServices.Views.HotWorkPermit.Permit"
+             Title="Hot Works Permit">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Assets/styles.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Entry x:Name="Id" IsVisible="False" />
+            <ScrollView>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid Padding="10" RowSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Text="Permit No" TextColor="Black" HorizontalOptions="Start" FontSize="18" VerticalOptions="Center"/>
+                        <Entry x:Name="PermitNumberEntry" Grid.Column="1" Grid.Row="0" TextColor="Black" VerticalOptions="Center" FontSize="18"/>
+                        <Label Grid.Column="0" Grid.Row="1" Text="Date" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18"/>
+                        <DatePicker Format="dd/MM/yyyy" x:Name="PermitDate" Grid.Column="1" Grid.Row="1" TextColor="Black" VerticalOptions="Center" FontSize="18"/>
+                        <Label Grid.Column="0" Grid.Row="2" Text="Site Name" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18"/>
+                        <Entry x:Name="SiteNameEntry" Grid.Column="1" Grid.Row="2" TextColor="Black" VerticalOptions="Center" FontSize="18"/>
+                        <Label Grid.Column="0" Grid.Row="3" Text="Location of Work Area" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18"/>
+                        <Entry x:Name="LocationEntry" Grid.Column="1" Grid.Row="3" TextColor="Black" VerticalOptions="Center" FontSize="18"/>
+                        <Label Grid.Column="0" Grid.Row="4" Text="Plant/Equipment to be worked on" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18"/>
+                        <Entry x:Name="EquipmentEntry" Grid.Column="1" Grid.Row="4" TextColor="Black" VerticalOptions="Center" FontSize="18"/>
+                        <Label Grid.Column="0" Grid.Row="5" Text="Nature of work" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" FontSize="18"/>
+                        <Entry x:Name="NatureOfWorkEntry" Grid.Column="1" Grid.Row="5" TextColor="Black" VerticalOptions="Center" FontSize="18"/>
+                    </Grid>
+                    <StackLayout x:Name="RequestStack" Padding="0">
+                        <accordion:RequestOfPermit x:Name="RequestSection" HeaderText="Request of Permit" HeaderTextColor="White" HeaderBackgroundColor="#2196F3" HeaderOpenedBackgroundColor="#2196F3" />
+                    </StackLayout>
+                    <StackLayout Padding="0">
+                        <accordion:IssueOfPermit x:Name="IssueSection" HeaderText="Issue of Permit" HeaderTextColor="White" HeaderBackgroundColor="#2196F3" HeaderOpenedBackgroundColor="#2196F3" />
+                    </StackLayout>
+                    <StackLayout Padding="0">
+                        <accordion:ReturnOfPermit x:Name="ReturnSection" HeaderText="Return of Permit" HeaderTextColor="White" HeaderBackgroundColor="#2196F3" HeaderOpenedBackgroundColor="#2196F3" />
+                    </StackLayout>
+                    <StackLayout Padding="0">
+                        <accordion:Checklist x:Name="ChecklistSection" HeaderText="Checklist" HeaderTextColor="White" HeaderBackgroundColor="#2196F3" HeaderOpenedBackgroundColor="#2196F3" />
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout x:Name="ActivityIndicator_StackLayout" Orientation="Horizontal" Margin="0, 30, 0, 0" IsVisible="False">
+                <ActivityIndicator x:Name="SubmitDailyTimesheet" IsVisible="True" HorizontalOptions="CenterAndExpand" IsRunning="True" />
+            </StackLayout>
+            <StackLayout x:Name="CallToActions_StackLayout" Orientation="Horizontal" Margin="0, 30, 0, 0">
+                <Button x:Name="Delete" Clicked="Delete_Clicked" StyleClass="deleteButton" Text="Delete" HorizontalOptions="StartAndExpand" IsVisible="False" />
+                <Button x:Name="SendToOffice" Clicked="SendToOffice_Clicked" StyleClass="secondaryButton" Text="Send to Office" HorizontalOptions="CenterAndExpand" IsVisible="False" />
+                <Button x:Name="Save" StyleClass="primaryButton" Clicked="Save_Clicked" Text="Save" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

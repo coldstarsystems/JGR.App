@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JGRBuildingServices.Views.PurchaseOrders.ListItems">
+    <ContentView.Content>
+        <StackLayout x:Name="ListItemsStackLayout">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Button Text="&#xf057;" TextColor="Red" BackgroundColor="White" FontSize="24" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" Clicked="Remove_Clicked">
+                    <Button.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String" Android="fa-regular-400.ttf#Font Awesome 5 Free Regular" />
+                    </Button.FontFamily>
+                </Button>
+                <Entry x:Name="Quantity" FontSize="18" Grid.Column="1" Grid.Row="0" HorizontalTextAlignment="Center" VerticalOptions="Center" Keyboard="Numeric" />
+                <Entry x:Name="Item" FontSize="18" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                <Entry x:Name="Job" FontSize="18" Grid.Column="3" Grid.Row="0" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+                <Entry x:Name="UnitPrice" FontSize="18" Grid.Column="4" Grid.Row="0" HorizontalTextAlignment="Center" VerticalOptions="Center" Keyboard="Numeric" />
+                <Entry x:Name="LineTotal" FontSize="18" Grid.Column="5" Grid.Row="0" HorizontalTextAlignment="Center" VerticalOptions="Center" IsEnabled="False" />
+
+                <Label x:Name="DescriptionLabel" Text="Description" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" HorizontalTextAlignment="Center" VerticalOptions="Center" />
+                <Entry x:Name="Description" FontSize="18" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="1" HorizontalTextAlignment="Start" VerticalOptions="Center" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

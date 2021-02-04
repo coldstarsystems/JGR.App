@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             Title="Maintenance - Health and Safety"             
+             x:Class="JGRBuildingServices.Views.MaintenanceEngineers.HealthAndSafety">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Assets/styles.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout x:Name="ListItemsStackLayout">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="70" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Name" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="24" HeightRequest="40" />
+                <Label Text="Date" Grid.Row="0" Grid.Column="1" FontAttributes="Bold" FontSize="24" HeightRequest="40" />
+
+                <Label Text="Maintenance Engineers CoSHH Manual" Grid.Row="1" Grid.Column="0" FontSize="24" HeightRequest="40">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                
+                <Label Text="2019" Grid.Row="1" Grid.Column="1" FontSize="24" HeightRequest="40" />
+
+                <Label Text="Maintenance Engineers Method Statement" Grid.Row="2" Grid.Column="0" FontSize="24" HeightRequest="40">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="2019" Grid.Row="2" Grid.Column="1" FontSize="24" HeightRequest="40" />
+
+                <Label Text="Maintenance Engineers Site Risk Assessment Manual" Grid.Row="3" Grid.Column="0" FontSize="24" HeightRequest="40">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="2019" Grid.Row="3" Grid.Column="1" FontSize="24" HeightRequest="40" />
+
+                <Label Text="Maintenance Engineer Task Procedures Manual" Grid.Row="4" Grid.Column="0" FontSize="24" HeightRequest="40">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Text="2019" Grid.Row="4" Grid.Column="1" FontSize="24" HeightRequest="40" />
+            </Grid>
+        </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

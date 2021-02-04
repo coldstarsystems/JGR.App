@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JGRBuildingServices.Views.AnnualLeave.Declined"
+             BackgroundColor="White"
+             Title="Declined">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Assets/styles.css" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid RowSpacing="10" ColumnSpacing="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.6*" />
+                <ColumnDefinition Width="0.4*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
+                <Label Text="Entitlement" FontSize="22" FontAttributes="Bold" TextColor="Black" />
+                <Label x:Name="AnnualLeaveEntitlement" FontSize="18" TextColor="Black" />
+            </StackLayout>
+            <StackLayout Grid.Row="0" Grid.Column="1" BackgroundColor="#1b4a8d" Padding="10">
+                <Label HorizontalOptions="Center" Text="Remaining Balance" FontSize="24" VerticalOptions="Start" TextColor="White" />
+                <Label x:Name="AnnualLeaveBalance" HorizontalOptions="Center" FontSize="70" TextColor="White" VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackLayout Margin="0, 20, 0, 0">
+                    <Label Text="Declined Annual Leave Requests" FontSize="22" FontAttributes="Bold" TextColor="Black" />
+                    <ListView x:Name="AnnualLeaveRequestsDeclinedList" ItemSelected="AnnualLeaveRequestsList_ItemSelected" Margin="0, 20, 0, 0">
+                        <ListView.Header>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, 0, 0, 20">
+                                <Label Text="" WidthRequest="60" />
+                                <Label Text="Starting" WidthRequest="200" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="24" FontAttributes="Bold" />
+                                <Label Text="Ending" WidthRequest="200" HorizontalOptions="EndAndExpand" TextColor="Black" FontSize="24" FontAttributes="Bold" />
+                                <Label Text="Total Days" WidthRequest="200" HorizontalOptions="EndAndExpand" TextColor="Black" FontSize="24" FontAttributes="Bold" HorizontalTextAlignment="End" />
+                            </StackLayout>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0, 10, 0, 10" HeightRequest="40">
+                                        <Image Source="annualleave.png" WidthRequest="60" />
+                                        <Label Text="{Binding Starting, StringFormat='{0:dd/MM/yyyy}'}" WidthRequest="200" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="18" />
+                                        <Label Text="{Binding Ending, StringFormat='{0:dd/MM/yyyy}'}" WidthRequest="200" HorizontalOptions="StartAndExpand" TextColor="Black" FontSize="18" />
+                                        <Label Text="{Binding TotalDays}" WidthRequest="200" HorizontalOptions="EndAndExpand" TextColor="Black" FontSize="18" HorizontalTextAlignment="End" />
+                                        <Label Text="{Binding Id}" IsVisible="False" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

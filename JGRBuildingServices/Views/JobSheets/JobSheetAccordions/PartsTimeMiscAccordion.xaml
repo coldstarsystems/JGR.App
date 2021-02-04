@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:jgrjobsheet="clr-namespace:JGRBuildingServices"
+             x:Class="JGRBuildingServices.PartsTimeMiscAccordion">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="20" TextColor="Black" VerticalOptions="Center" Margin="20, 0, 0, 0" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,16,5" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <StackLayout x:Name="BodyView" Padding="0, 0, 0, 0">
+                <StackLayout Padding="0, 0, 0, 20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="#78C4F7" Grid.Column="0" Grid.Row="0" />
+                        <Label Text="Parts" FontSize="20" TextColor="White" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Margin="20, 10, 0, 10" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout x:Name="AddMoreParts">
+                    <jgrjobsheet:PartsView />
+                    <!--Add More Parts Spawn Here-->
+                </StackLayout>
+
+                <StackLayout Padding="0, 10, 20, 20">
+                    <Button Clicked="AddMoreParts_Handle_Tapped" Text="Add Another" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold" HorizontalOptions="End" />
+                </StackLayout>
+                <StackLayout Padding="0, 20, 0, 20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="#78C4F7" Grid.Column="0" Grid.Row="0" />
+                        <Label Text="Time Sheets" FontSize="20" TextColor="White" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Margin="20, 10, 0, 10" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout x:Name="AddMoreTimeSection">
+                    <jgrjobsheet:TimeSheetAccordionView HeaderText="Time Sheet 1" />
+                </StackLayout>
+                <StackLayout Padding="0, 10, 20, 20">
+                    <Button Clicked="AddMoreTime_Handle_Tapped" Text="Add Another" BackgroundColor="Blue" TextColor="White" FontAttributes="Bold" HorizontalOptions="End" />
+                </StackLayout>
+
+                <StackLayout Padding="0, 20, 0, 20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <BoxView BackgroundColor="#78C4F7" Grid.Column="0" Grid.Row="0" />
+                        <Label Text="Misc" FontSize="20" TextColor="White" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" Margin="20, 10, 0, 10" />
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout Padding="20, 20, 20, 20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label Text="Temp on Arrival" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="0" />
+                        <Entry x:Name="TempOnArrival" Grid.Column="1" Grid.Row="0" Keyboard="Telephone" Margin="0, 0, 0, 10" />
+
+                        <Label Text="Temp on Departure" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="1" />
+                        <Entry x:Name="TempOnDeparture" Grid.Column="1" Grid.Row="1" Keyboard="Telephone" Margin="0, 0, 0, 10" />
+
+                        <Label Text="Plant Left Operational" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="2" />
+                        <Picker x:Name="PlantLeftOperational" Title="Please Select..." Grid.Column="1" Grid.Row="2" Margin="0, 0, 0, 10">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Label Text="Job Complete" FontSize="18" TextColor="Black" Grid.Column="0" Grid.Row="3" />
+                        <Picker x:Name="JobComplete" Title="Please Select..." Grid.Column="1" Grid.Row="3" Margin="0, 0, 0, 10">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

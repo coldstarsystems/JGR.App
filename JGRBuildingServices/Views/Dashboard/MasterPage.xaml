@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JGRBuildingServices.ViewModels"
+             xmlns:dn="clr-namespace:JGRBuildingServices.Views"
+			 x:Class="JGRBuildingServices.Views.Dashboard.MasterPage"
+			 Padding="0, 40, 0, 0"
+			 Title="Dashboard">
+    <ContentPage.Resources>
+        <StyleSheet Source="/Assets/styles.css" />
+    </ContentPage.Resources>
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Image Source="@drawable/logo" Margin="0, 0, 0, 60" WidthRequest="120" HeightRequest="120" />
+        </StackLayout>
+        <ListView x:Name="listView" x:FieldModifier="public">
+           <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:MasterPageItemsViewModel}">
+                    <local:MasterPageItemsViewModel Title="Dashboard" IconSource="dashboard.png" TargetType="{x:Type dn:Dashboard.Dashboard}" />
+                    <local:MasterPageItemsViewModel Title="Job Sheets" IconSource="jobsheets.png" TargetType="{x:Type dn:JobSheets.JobSheetsTabbed}" />
+                    <local:MasterPageItemsViewModel Title="Purchase Orders" IconSource="purchaseorders.png" TargetType="{x:Type dn:PurchaseOrders.PurchaseOrders}" />
+                    <local:MasterPageItemsViewModel Title="Daily Timesheets" IconSource="timesheets.png" TargetType="{x:Type dn:DailyTimesheets.TimesheetTabbed}" />
+                    <local:MasterPageItemsViewModel Title="Hot Work Permits" IconSource="permit.png" TargetType="{x:Type dn:HotWorkPermit.PermitsTabbed}" />
+                    <local:MasterPageItemsViewModel Title="Annual Leave" IconSource="annualleave.png" TargetType="{x:Type dn:AnnualLeave.AnnualLeaveTabbed}" />
+                    <local:MasterPageItemsViewModel Title="Vehicle Checklists" IconSource="vehiclechecks.png" TargetType="{x:Type dn:VehicleChecklists.VehicleChecklists}" />
+                    <local:MasterPageItemsViewModel Title="Service - Health and Safety" IconSource="healthandsafety.png" TargetType="{x:Type dn:ServiceEngineers.HealthAndSafety}" />
+                    <local:MasterPageItemsViewModel Title="Maintenance - Health and Safety" IconSource="healthandsafety.png" TargetType="{x:Type dn:MaintenanceEngineers.HealthAndSafety}" />
+                    <local:MasterPageItemsViewModel Title="Settings" IconSource="settings.png" TargetType="{x:Type dn:Settings.Settings}" />
+                    <local:MasterPageItemsViewModel Title="Info" IconSource="appinfo.png" TargetType="{x:Type dn:Info.Info}" />
+                </x:Array>
+            </ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5, 10, 5, 10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding IconSource}" />
+                            <Label Grid.Column="1" Text="{Binding Title}" FontSize="Medium" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 0">
+            <Label Text="Developed By Coldstar Systems" FontSize="Medium" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 20">
+            <Label Text="Version 1.8.1" FontSize="Medium" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

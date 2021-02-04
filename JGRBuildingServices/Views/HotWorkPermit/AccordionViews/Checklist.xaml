@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:custom="clr-namespace:JGRBuildingServices.Extras"
+             mc:Ignorable="d"
+             BackgroundColor="White"
+             x:Class="JGRBuildingServices.Views.HotWorkPermit.AccordionViews.Checklist">
+  <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" Margin="10" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,10,16,10" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid x:Name="BodyView" BackgroundColor="White">
+                <StackLayout>
+                    <StackLayout BackgroundColor="#d6e3bc" HorizontalOptions="Fill" Padding="10">
+                        <Label Text="Part 1 - Prior to Work Commencing" TextColor="Black" FontSize="22" FontAttributes="Bold" />
+                    </StackLayout>
+                    <Grid Padding="20,0,20,0" RowSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Label Text="Question" Grid.Column="0" Grid.Row="0" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" />
+                        <Label Text="Option" Grid.Column="1" Grid.Row="0" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" />
+                        <Label Text="Comment" Grid.Column="2" Grid.Row="0" FontSize="18" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" />
+                         <!--Question 1-->
+                        <Label x:Name="Question1Id" Text="Question1" IsVisible="False" />
+                        <Label x:Name="Question1" VerticalTextAlignment="Center" FontSize="16" Text="Can an alternative method of work be considered?" TextColor="Black" Grid.Column="0" Grid.Row="1" />
+                        <custom:CustomPicker x:Name="Question1Picker" Grid.Column="1" Grid.Row="1" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question1Comments" FontSize="16" Grid.Column="2" Grid.Row="1" VerticalOptions="Center" />
+                        <!--Question 2-->
+                        <Label x:Name="Question2Id" Text="Question2" IsVisible="False" />
+                        <Label x:Name="Question2" VerticalTextAlignment="Center" FontSize="16" Text="If No, is there a suitable risk assessment and work method statement in palce and is it detailed to cover the hot work activity?" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
+                        <custom:CustomPicker x:Name="Question2Picker" Grid.Column="1" Grid.Row="2" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question2Comments" FontSize="16" Grid.Column="2" Grid.Row="2" VerticalOptions="Center" />
+                        <!--Question 3-->
+                        <Label x:Name="Question3Id" Text="Question3" IsVisible="False" />
+                        <Label x:Name="Question3" VerticalTextAlignment="Center" FontSize="16" Text="Work area has been cleared of all combustible materials. Where materials cannot be removed, protection has been provided by fire blankets or screens?" TextColor="Black" Grid.Column="0" Grid.Row="3"/>
+                        <custom:CustomPicker x:Name="Question3Picker" Grid.Column="1" Grid.Row="3" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question3Comments" FontSize="16" Grid.Column="2" Grid.Row="3" VerticalOptions="Center" />
+                        <!--Question 4-->
+                        <Label x:Name="Question4Id" Text="Question4" IsVisible="False" />
+                        <Label x:Name="Question4" VerticalTextAlignment="Center" FontSize="16" Text="If required - Smoke detectors in the work area have been disabled by site technical staff, prior to commencement of hot works" TextColor="Black" Grid.Column="0" Grid.Row="4"/>
+                        <custom:CustomPicker x:Name="Question4Picker" Grid.Column="1" Grid.Row="4" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question4Comments" FontSize="16" Grid.Column="2" Grid.Row="4" VerticalOptions="Center" />
+                        <!--Question 5-->
+                        <Label x:Name="Question5Id" Text="Question5" IsVisible="False" />
+                        <Label x:Name="Question5" VerticalTextAlignment="Center" FontSize="16" Text="Suitable fire extinguishing equipment has been provided (fire extinguishers, fire blankets etc) for the duration of the works and staff trained in their use." TextColor="Black" Grid.Column="0" Grid.Row="5"/>
+                        <custom:CustomPicker x:Name="Question5Picker" Grid.Column="1" Grid.Row="5" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question5Comments" FontSize="16" Grid.Column="2" Grid.Row="5" VerticalOptions="Center" />
+                        <!--Question 6-->
+                        <Label x:Name="Question6Id" Text="Question6" IsVisible="False" />
+                        <Label x:Name="Question6" VerticalTextAlignment="Center" FontSize="16" Text="There is a suitable means of raising the alarm, if fire occurs and operatives aware of how to use them?" TextColor="Black" Grid.Column="0" Grid.Row="6"/>
+                        <custom:CustomPicker x:Name="Question6Picker" Grid.Column="1" Grid.Row="6" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question6Comments" FontSize="16" Grid.Column="2" Grid.Row="6" VerticalOptions="Center" />
+                        <!--Question 7-->
+                        <Label x:Name="Question7Id" Text="Question7" IsVisible="False" />
+                        <Label x:Name="Question7" VerticalTextAlignment="Center" FontSize="16" Text="Warning / Exclusion notices and barriers are in position to eclude others not involved with the hot work?" TextColor="Black" Grid.Column="0" Grid.Row="7"/>
+                        <custom:CustomPicker x:Name="Question7Picker" Grid.Column="1" Grid.Row="7" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question7Comments" FontSize="16" Grid.Column="2" Grid.Row="7" VerticalOptions="Center" />
+                        <!--Question 8-->
+                        <Label x:Name="Question8Id" Text="Question8" IsVisible="False" />
+                        <Label x:Name="Question8" VerticalTextAlignment="Center" FontSize="16" Text="Does the work require the isolating, purging, cleaning and venting of fuel or chemical tanks and associated pipe work?" TextColor="Black" Grid.Column="0" Grid.Row="8"/>
+                        <custom:CustomPicker x:Name="Question8Picker" Grid.Column="1" Grid.Row="8" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question8Comments" FontSize="16" Grid.Column="2" Grid.Row="8" VerticalOptions="Center" />
+                        <!--Question 9-->
+                        <Label x:Name="Question9Id" Text="Question9" IsVisible="False" />
+                        <Label x:Name="Question9" VerticalTextAlignment="Center" FontSize="16" Text="Is the atmosphere around the hot work free from other flammable gases and vapours?" TextColor="Black" Grid.Column="0" Grid.Row="9"/>
+                        <custom:CustomPicker x:Name="Question9Picker" Grid.Column="1" Grid.Row="9" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question9Comments" FontSize="16" Grid.Column="2" Grid.Row="9" VerticalOptions="Center" />
+                        <!--Question 10-->
+                        <Label x:Name="Question10Id" Text="Question10" IsVisible="False" />
+                        <Label x:Name="Question10" VerticalTextAlignment="Center" FontSize="16" Text="Is there a risk of localised heating being transmitted along pipes or metal to other flammable surfaces?" TextColor="Black" Grid.Column="0" Grid.Row="10"/>
+                        <custom:CustomPicker x:Name="Question10Picker" Grid.Column="1" Grid.Row="10" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question10Comments" FontSize="16" Grid.Column="2" Grid.Row="10" VerticalOptions="Center" />
+                        <!--Question 11-->
+                        <Label x:Name="Question11Id" Text="Question11" IsVisible="False" />
+                        <Label x:Name="Question11" VerticalTextAlignment="Center" FontSize="16" Text="Is there a requirement for a fire watcher / safety man and, if so, is he trained in the emergency action to be taken, if required?" TextColor="Black" Grid.Column="0" Grid.Row="11"/>
+                        <custom:CustomPicker x:Name="Question11Picker" Grid.Column="1" Grid.Row="11" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question11Comments" FontSize="16" Grid.Column="2" Grid.Row="11" VerticalOptions="Center" />
+                    </Grid>
+                    <StackLayout BackgroundColor="#d6e3bc" HorizontalOptions="Fill" Padding="10">
+                        <Label Text="Part 2 - Equipment" TextColor="Black" FontSize="22" FontAttributes="Bold" />
+                    </StackLayout>
+                    <Grid Padding="20,0,20,0" RowSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <!--Question 12-->
+                        <Label x:Name="Question12Id" Text="Question12" IsVisible="False" />
+                        <Label x:Name="Question12" VerticalTextAlignment="Center" FontSize="16" Text="All equipment associated with hot work has been checked and is in good order?" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
+                        <custom:CustomPicker x:Name="Question12Picker" Grid.Column="1" Grid.Row="0" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question12Comments" FontSize="16" Grid.Column="2" Grid.Row="0" VerticalOptions="Center" />
+                        <!--Question 13-->
+                        <Label x:Name="Question13Id" Text="Question13" IsVisible="False" />
+                        <Label x:Name="Question13" VerticalTextAlignment="Center" FontSize="16" Text="All gas cylinders have been secured at the work location?" TextColor="Black" Grid.Column="0" Grid.Row="1"/>
+                        <custom:CustomPicker x:Name="Question13Picker" Grid.Column="1" Grid.Row="1" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question13Comments" FontSize="16" Grid.Column="2" Grid.Row="1" VerticalOptions="Center" />
+                        <!--  Question 14 -->
+                        <Label x:Name="Question14Id" Text="Question14" IsVisible="False" />
+                        <Label x:Name="Question14" VerticalTextAlignment="Center" FontSize="16" Text="Operatives suitably trained to use equipment associated with hot work?" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
+                        <custom:CustomPicker x:Name="Question14Picker" Grid.Column="1" Grid.Row="2" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question14Comments" FontSize="16" Grid.Column="2" Grid.Row="2" VerticalOptions="Center" />
+                        <!-- Question 15 -->
+                        <Label x:Name="Question15Id" Text="Question15" IsVisible="False" />
+                        <Label x:Name="Question15" VerticalTextAlignment="Center" FontSize="16" Text="Appropriate PPE is available and will be worn at all times during hot work?" TextColor="Black" Grid.Column="0" Grid.Row="3"/>
+                        <custom:CustomPicker x:Name="Question15Picker" Grid.Column="1" Grid.Row="3" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question15Comments" FontSize="16" Grid.Column="2" Grid.Row="3" VerticalOptions="Center" />
+                    </Grid>
+                    <StackLayout BackgroundColor="#d6e3bc" HorizontalOptions="Fill" Padding="10">
+                        <Label Text="Part 3 - On Completion of Hot Work" TextColor="Black" FontSize="22" FontAttributes="Bold" />
+                    </StackLayout>
+                    <Grid Padding="20,0,20,0" RowSpacing="20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <!--Question 16-->
+                        <Label x:Name="Question16Id" Text="Question16" IsVisible="False" />
+                        <Label x:Name="Question16" VerticalTextAlignment="Center" FontSize="16" Text="All equipment, including gas cylinders have been removed from site on completion of the work?" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
+                        <custom:CustomPicker x:Name="Question16Picker" Grid.Column="1" Grid.Row="0" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question16Comments" FontSize="16" Grid.Column="2" Grid.Row="0" VerticalOptions="Center" />
+                        <!--Question 17-->
+                        <Label x:Name="Question17Id" Text="Question17" IsVisible="False" />
+                        <Label x:Name="Question17" VerticalTextAlignment="Center" FontSize="16" Text="A fire check will be carried out, no sooner than 30 minutes after hot works has been completed?" TextColor="Black" Grid.Column="0" Grid.Row="1"/>
+                        <custom:CustomPicker x:Name="Question17Picker" Grid.Column="1" Grid.Row="1" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question17Comments" FontSize="16" Grid.Column="2" Grid.Row="1" VerticalOptions="Center" />
+                        <!--  Question 18 -->
+                        <Label x:Name="Question18Id" Text="Question18" IsVisible="False" />
+                        <Label x:Name="Question18" VerticalTextAlignment="Center" FontSize="16" Text="Smoke detectors etc, that were disabled, prior to commencement of hot works have been re-instated?" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
+                        <custom:CustomPicker x:Name="Question18Picker" Grid.Column="1" Grid.Row="2" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question18Comments" FontSize="16" Grid.Column="2" Grid.Row="2" VerticalOptions="Center" />
+                        <!-- Question 19 -->
+                        <Label x:Name="Question19Id" Text="Question19" IsVisible="False" />
+                        <Label x:Name="Question19" VerticalTextAlignment="Center" FontSize="16" Text="Hot work permit will be returned and signed off as completed?" TextColor="Black" Grid.Column="0" Grid.Row="3"/>
+                        <custom:CustomPicker x:Name="Question19Picker" Grid.Column="1" Grid.Row="3" FontSize="16" TextColor="Gray" Title="Select" VerticalOptions="Center">
+                            <custom:CustomPicker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Yes</x:String>
+                                    <x:String>No</x:String>
+                                    <x:String>N/A</x:String>
+                                </x:Array>
+                            </custom:CustomPicker.ItemsSource>
+                        </custom:CustomPicker>
+                        <Editor x:Name="Question19Comments" FontSize="16" Grid.Column="2" Grid.Row="3" VerticalOptions="Center" />
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

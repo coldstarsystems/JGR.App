@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             x:Class="JGRBuildingServices.RiskAssessmentAccordionView">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" Spacing="0">
+            <Grid x:Name="HeaderView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Label x:Name="HeaderLabel" FontSize="20" TextColor="Black" VerticalOptions="Center" Margin="20, 0, 0, 0" LineBreakMode="WordWrap" />
+                <Label x:Name="IndicatorLabel" Style="{DynamicResource BodySecondaryBold}" TextColor="White" FontSize="32" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="0,5,16,5" Grid.Column="1"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid x:Name="BodyView" Padding="20, 20, 20, 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="700" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label x:Name="Check1" Text="Working on Clients Sites / Premises:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check1Checkbox" Grid.Column="1" Grid.Row="0" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check2" Text="Working in Ceiling / Void Spaces:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check2Checkbox" Grid.Column="1" Grid.Row="1" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check3" Text="Working on Flat Roofs:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="2" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check3Checkbox" Grid.Column="1" Grid.Row="2" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check4" Text="Use of Roof Man Anchor Systems:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="3" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check4Checkbox" Grid.Column="1" Grid.Row="3" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check5" Text="Lone Working / Out Of Hours Working:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="4" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check5Checkbox" Grid.Column="1" Grid.Row="4" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check6" Text="Use of Mobile Elevated Lift Platforms:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="5" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check6Checkbox" Grid.Column="1" Grid.Row="5" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check7" Text="Use of Mobile Scaffold Towers:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="6" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check7Checkbox" Grid.Column="1" Grid.Row="6" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check8" Text="Use of Ladders &amp; Step Ladders:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="7" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check8Checkbox" Grid.Column="1" Grid.Row="7" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check9" Text="Use of Material Hoists:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="8" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check9Checkbox" Grid.Column="1" Grid.Row="8" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check10" Text="Use of Hand Tools:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="9" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check10Checkbox" Grid.Column="1" Grid.Row="9" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check11" Text="Use of Portable Electrical Equipment:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="10" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check11Checkbox" Grid.Column="1" Grid.Row="10" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check12" Text="Use of Disc Cutters &amp; Angle Grinders:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="11" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check12Checkbox" Grid.Column="1" Grid.Row="11" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check13" Text="Pressure Testing of Pipework &amp; Systems:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="12" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check13Checkbox" Grid.Column="1" Grid.Row="12" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check14" Text="Electrical Works up to 415v:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="13" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check14Checkbox" Grid.Column="1" Grid.Row="13" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check15" Text="Use of Oxy-acetylene Equipment:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="14" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check15Checkbox" Grid.Column="1" Grid.Row="14" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check16" Text="Storage of Materials on site:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="15" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check16Checkbox" Grid.Column="1" Grid.Row="15" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check17" Text="Storage of Flammable Substances &amp; Compressed Gas Cylinders:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="16" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check17Checkbox" Grid.Column="1" Grid.Row="16" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check18" Text="Slips, Trips &amp; Falls:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="17" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check18Checkbox" Grid.Column="1" Grid.Row="17" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check19" Text="Working in Coldrooms:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="18" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check19Checkbox" Grid.Column="1" Grid.Row="18" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check20" Text="Noise:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="19" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check20Checkbox" Grid.Column="1" Grid.Row="19" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check21" Text="Removal Installation &amp; Movement of Refrigeration Units:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="20" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check21Checkbox" Grid.Column="1" Grid.Row="20" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check22" Text="Removal Installation &amp; Movement of Air Con Units:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="21" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check22Checkbox" Grid.Column="1" Grid.Row="21" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check23" Text="Loading &amp; Unloading Vehicles:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="22" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check23Checkbox" Grid.Column="1" Grid.Row="22" Color="Red" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check24" Text="Movement of Refrigerant &amp; Compressed Gas Cylinders:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="23" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check24Checkbox" Grid.Column="1" Grid.Row="23" Color="Blue" HorizontalOptions="End" Type="Check" />
+
+                <Label x:Name="Check25" Text="Use of Podium Steps:" TextColor="Black" FontSize="18" Grid.Column="0" Grid.Row="24" HorizontalTextAlignment="Start" />
+                <input:CheckBox x:Name="Check25Checkbox" Grid.Column="1" Grid.Row="24" Color="Blue" HorizontalOptions="End" Type="Check" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
