@@ -1182,11 +1182,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices\\JGRBuildingServices.csproj",
+      "projectUniqueName": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices\\JGRBuildingServices.csproj",
       "projectName": "JGRBuildingServices",
-      "projectPath": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices\\JGRBuildingServices.csproj",
+      "projectPath": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices\\JGRBuildingServices.csproj",
       "packagesPath": "C:\\Users\\Dane Marshall\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices\\obj\\",
+      "outputPath": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

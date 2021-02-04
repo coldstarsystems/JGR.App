@@ -1927,11 +1927,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices.Android\\JGRBuildingServices.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices.Android\\JGRBuildingServices.Android.csproj",
       "projectName": "JGRBuildingServices.Android",
-      "projectPath": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices.Android\\JGRBuildingServices.Android.csproj",
+      "projectPath": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices.Android\\JGRBuildingServices.Android.csproj",
       "packagesPath": "C:\\Users\\Dane Marshall\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices.Android\\obj\\",
+      "outputPath": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1953,8 +1953,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices\\JGRBuildingServices.csproj": {
-              "projectPath": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices\\JGRBuildingServices.csproj"
+            "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices\\JGRBuildingServices.csproj": {
+              "projectPath": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices\\JGRBuildingServices.csproj"
             }
           }
         }

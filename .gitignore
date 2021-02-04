@@ -1,7 +1,7 @@
 # Ignore PCL Obj and Bin Folder
-JGRBuildingServices/JGRBuildingServices/bin/
-JGRBuildingServices/JGRBuildingServices/obj/
+JGRBuildingServices/bin/
+JGRBuildingServices/obj/
 
 # Ignore Android Obj and Bin Folder
-JGRBuildingServices/JGRBuildingServices.Android/bin/
-JGRBuildingServices/JGRBuildingServices.Android/obj/
+JGRBuildingServices.Android/bin/
+JGRBuildingServices.Android/obj/

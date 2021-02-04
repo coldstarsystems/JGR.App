@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aiM+PRbDtOdG3ieNJyZzfn/rw5dj598wXDqgoVIa4guZWE0HOD866Dw3GYTF5Sq04KX0ql+oOiM59jwXh5tsZQ==",
+  "dgSpecHash": "NGS2kqVuNq1xdw2b4FU9M/9kgHjZ9H8lyGwA0F0sMGQcxXhE5h078yqcn8Ed/xUIKMu5B2JIGcaUpDGvY4/Xyg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dane Marshall\\Desktop\\JGRBuildingServices\\JGRBuildingServices.Android\\JGRBuildingServices.Android.csproj",
+  "projectFilePath": "C:\\Users\\Dane Marshall\\Documents\\GitHub\\JGR.App\\JGRBuildingServices.Android\\JGRBuildingServices.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dane Marshall\\.nuget\\packages\\exiflib.pcl\\1.0.1\\exiflib.pcl.1.0.1.nupkg.sha512",
     "C:\\Users\\Dane Marshall\\.nuget\\packages\\microsoft.appcenter\\3.4.3\\microsoft.appcenter.3.4.3.nupkg.sha512",
