@@ -50,5 +50,9 @@
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 20">
             <Label Text="Version 1.8.1" FontSize="Medium" />
         </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0, 0, 0, 20">
+            <Label Text="Last Synced:" FontSize="Medium" />
+            <Label x:Name="LastSyncedLabel" Text="DateHere" FontSize="Medium" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>

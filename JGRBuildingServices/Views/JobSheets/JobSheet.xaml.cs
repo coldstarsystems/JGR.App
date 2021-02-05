@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using SignaturePad.Forms;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -53,6 +54,8 @@ namespace JGRBuildingServices.Views.JobSheets
     {
         static readonly String _url = "https://api.jgr1.com";
 
+        public static Boolean isTapped = false;
+
         JobSheetPageObject JobSheetobject = new JobSheetPageObject();
 
         public JobSheet()
@@ -64,7 +67,20 @@ namespace JGRBuildingServices.Views.JobSheets
                 CustomersList = App.CustomersDatabase.GetAllCustomers().Select(c => new CustomersViewModel() { Id = c.Id, Name = c.Name }).ToList()
             };
 
+            SearchResults.ItemsSource = GetCustomers();
+
             NinthSection.IsVisible = false;
+
+            var assignedStaffId = App.SettingsDatabase.GetSetting("AssignedStaffId");
+
+            if (assignedStaffId != null)
+            {
+                var staffId = Convert.ToInt32(assignedStaffId.Value);
+
+                var staffMember = App.StaffDatabase.GetStaffById(staffId);
+
+                PositionEntry.Text = staffMember.Position;
+            }
         }
 
         public JobSheet(JobSheetPageObject JobSheetobject)
@@ -104,6 +120,8 @@ namespace JGRBuildingServices.Views.JobSheets
                     Postcode = c.Postcode
                 }).ToList()
             };
+
+            SearchResults.ItemsSource = GetCustomers();
 
             GetData(id);
 
@@ -371,7 +389,7 @@ namespace JGRBuildingServices.Views.JobSheets
                 #endregion
 
                 #region Set FGas
-                
+
                 var misc = new FGasMiscViewModel();
 
                 misc.TemperatureOnArrival = jobSheetObject.TemperatureOnArrival;
@@ -943,7 +961,7 @@ namespace JGRBuildingServices.Views.JobSheets
                     fGasReturnLeak.ReturnLeakTestSystemNumber = fGasSection.RLTSystemNumber;
                     fGasReturnLeak.ReturnLeakTestLeakFound = fGasSection.RLTLeakFoundYes;
                     fGasReturnLeak.ReturnLeakTestDetails = fGasSection.RLTDetails;
-                    
+
                     #region Site Works
 
                     var siteWorkSection = SiteWorks.GetSectionSiteWorks();
@@ -1206,7 +1224,7 @@ namespace JGRBuildingServices.Views.JobSheets
 
                         Navigation.RemovePage(this);
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -1329,12 +1347,72 @@ namespace JGRBuildingServices.Views.JobSheets
         {
             if (FGasSwitch.IsChecked == true)
             {
-                NinthSection.IsVisible = true;                
+                NinthSection.IsVisible = true;
             }
             else
             {
                 NinthSection.IsVisible = false;
             }
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            FormLayout.IsVisible = false;
+            ActivityIndicator_StackLayout.IsVisible = false;
+            SubmittedLayout.IsVisible = false;
+            SearchLayout.IsVisible = true;
+            isTapped = false;
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchBarController = (SearchBar)sender;
+            SearchResults.ItemsSource = GetCustomers(e.NewTextValue);
+        }
+
+        IEnumerable<CustomersViewModel> GetCustomers(string searchText = null)
+        {
+            var customers = new ObservableCollection<CustomersViewModel>();
+
+            foreach (CustomersViewModel i in CustomerList.ItemsSource)
+            {
+                customers.Add(new CustomersViewModel()
+                {
+                    Name = i.Name,
+                    Id = i.Id,
+                    AddressLine1 = i.AddressLine1,
+                    AddressLine2 = i.AddressLine2,
+                    AddressLine3 = i.AddressLine3,
+                    AddressLine4 = i.AddressLine4,
+                    TownCity = i.TownCity,
+                    Postcode = i.Postcode
+                });
+            }
+
+            if (string.IsNullOrEmpty(searchText))
+            {
+                return customers;
+            }
+
+            return customers.Where(p => p.Name.ToLower().StartsWith(searchText));
+        }
+
+        private void SearchResults_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                if (isTapped == false)
+                {
+                    isTapped = true;
+                    SearchLayout.IsVisible = false;
+                    FormLayout.IsVisible = true;
+                    SubmittedLayout.IsVisible = true;
+                    CustomerList.SelectedItem = (BindingContext as JobSheetViewModel).CustomersList.FirstOrDefault(c => c.Name == ((CustomersViewModel)e.SelectedItem).Name);
+                    SearchResults.SelectedItem = null;
+                    SearchBarController.Text = null;
+                }
+            });
+
         }
     }
 }

@@ -19,7 +19,16 @@ namespace JGRBuildingServices.ViewModels
         public String AddressLine4 { get; set; }
 
         public String TownCity { get; set; }
-    
+
         public String Postcode { get; set; }
+
+        public Int32? StatusId { get; set; }
+    }
+
+    public class Status
+    {
+        public Int32? Id { get; set; }
+        public String Name { get; set; }
+        public String HexCode { get; set; }
     }
 }

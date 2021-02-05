@@ -41,6 +41,8 @@ namespace JGRBuildingServices.Views.Settings
         {
             var staffId = (StaffViewModel)StaffList.SelectedItem;
 
+
+
             if (App.SettingsDatabase.SaveSetting("AssignedStaffId", staffId.Id.ToString()))
             {
                 DisplayAlert("Saved", "This settings have been saved successfully.", "Acknowledge");

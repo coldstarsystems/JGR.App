@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using SQLiteNetExtensions.Attributes;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,5 +30,15 @@ namespace JGRBuildingServices.Models
         public Boolean IsActive { get; set; }
 
         public Boolean IsDeleted { get; set; }
+
+        public Int32? StatusId { get; set; }
+
+    }
+
+    public class Status
+    {
+        public Int32? Id { get; set; }
+        public String Name { get; set; }
+        public String HexCode { get; set; }
     }
 }

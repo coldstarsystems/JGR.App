@@ -47,7 +47,8 @@ namespace JGRBuildingServices.Data
                     var s = new Settings()
                     {
                         Name = name,
-                        Value = value
+                        Value = value,
+                        LastSynced = DateTime.Now
                     };
 
                     return database.Insert(s) > 0;
@@ -58,7 +59,8 @@ namespace JGRBuildingServices.Data
                     {
                         Id = setingInformation.Id,
                         Name = name,
-                        Value = value
+                        Value = value,
+                        LastSynced = DateTime.Now
                     };
 
                     return database.Update(s) > 0;

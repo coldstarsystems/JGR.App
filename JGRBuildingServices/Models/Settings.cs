@@ -11,5 +11,7 @@ namespace JGRBuildingServices.Models
         public String Name { get; set; }
 
         public String Value { get; set; }
+
+        public DateTime LastSynced { get; set; }
     }
 }

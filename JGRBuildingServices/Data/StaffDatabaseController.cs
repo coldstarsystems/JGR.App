@@ -53,6 +53,7 @@ namespace JGRBuildingServices.Data
                         o.AnnualLeaveAllowance = item.AnnualLeaveAllowance;
                         o.AnnualLeaveBalance = item.AnnualLeaveBalance;
                         o.PurchaseOrderIdentifier = item.PurchaseOrderIdentifier;
+                        o.Position = item.Position;
 
                         database.Update(o);
                     }

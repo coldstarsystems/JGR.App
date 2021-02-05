@@ -51,7 +51,8 @@ namespace JGRBuildingServices.Data
                              AddressLine3 = t.AddressLine3,
                              AddressLine4 = t.AddressLine4,
                              TownCity = t.TownCity,
-                             Postcode = t.Postcode
+                             Postcode = t.Postcode,
+                             StatusId = t.StatusId
                          }).Where(c => c.Id == id).Single();
 
                 return o;
@@ -71,7 +72,8 @@ namespace JGRBuildingServices.Data
                     AddressLine3 = t.AddressLine3,
                     AddressLine4 = t.AddressLine4,
                     TownCity = t.TownCity,
-                    Postcode = t.Postcode
+                    Postcode = t.Postcode,
+                    StatusId = t.StatusId,
                 }).OrderBy(i => i.Name).AsQueryable();
 
                 return o;

@@ -48,6 +48,7 @@ namespace JGRBuildingServices
                 SyncStaffDatabase();
                 SyncCustomersDatabase();
                 SyncAnnualLeaveRequests();
+                App.SettingsDatabase.SaveSetting("LastSynced", DateTime.Now.ToShortDateString());
             }
         }
 

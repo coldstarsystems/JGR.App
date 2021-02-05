@@ -21,5 +21,7 @@ namespace JGRBuildingServices.Models
         public Int32 NextPurchaseOrderNumber { get; set; }
 
         public String PurchaseOrderIdentifier { get; set; }
+
+        public String Position { get; set; }
     }
 }
